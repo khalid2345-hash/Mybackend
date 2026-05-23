@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://khalid-deev.netlify.app"])
 
 # DATABASE
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///portfolio.db"
