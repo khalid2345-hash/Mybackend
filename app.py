@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
-import os
+# from flask_sqlalchemy import SQLAlchemy
+# import os
 from werkzeug.utils import secure_filename
 import smtplib
 from email.mime.text import MIMEText
