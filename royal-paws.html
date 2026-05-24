@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Royal Paws - Premium Dog Breeding Platform</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+:root{
+  --bg:#0a0e27;
+  --bg-secondary:#111c3d;
+  --card:#161d3d;
+  --text:#f8fafc;
+  --text-muted:#a8b5c8;
+  --primary:#6366f1;
+  --primary-hover:#4f46e5;
+  --accent:#ec4899;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --shadow:0 25px 50px -12px rgba(0,0,0,0.5);
+  --shadow-lg:0 40px 80px -20px rgba(0,0,0,0.7);
+  --border:1px solid rgba(148,163,184,0.1);
+}
+
+.light-mode{
+  --bg:#f8fafc;
+  --bg-secondary:#f1f5f9;
+  --card:#ffffff;
+  --text:#0f172a;
+  --text-muted:#64748b;
+  --primary:#6366f1;
+  --shadow:0 10px 30px rgba(0,0,0,0.08);
+  --shadow-lg:0 20px 50px rgba(0,0,0,0.1);
+  --border:1px solid rgba(148,163,184,0.2);
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  transition:0.4s;
+  line-height:1.6;
+}
+
+/* ========================= 
+HEADER 
+========================= */
+
+header{
+  width:100%;
+  padding:20px 8%;
+  position:fixed;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(10,14,39,0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:var(--border);
+  transition:0.3s;
+}
+
+.logo{
+  font-size:1.8rem;
+  font-weight:800;
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Poppins',sans-serif;
+}
+
+nav{
+  display:flex;
+  gap:40px;
+  align-items:center;
+}
+
+nav a{
+  color:var(--text-muted);
+  text-decoration:none;
+  transition:0.3s;
+  font-size:0.95rem;
+  font-weight:500;
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+.auth-buttons{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.menu-btn{
+  display:none;
+  font-size:1.5rem;
+  cursor:pointer;
+  background:none;
+  border:none;
+  color:var(--text);
+}
+
+.theme-btn{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--card);
+  cursor:pointer;
+  font-size:1.2rem;
+  transition:0.3s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.theme-btn:hover{
+  background:var(--bg-secondary);
+}
+
+/* ========================= 
+BUTTONS 
+========================= */
+
+.btn{
+  padding:12px 28px;
+  border:none;
+  border-radius:12px;
+  font-size:0.95rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.4s;
+  font-family:'Inter',sans-serif;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#6366f1,#4f46e5);
+  color:white;
+  box-shadow:0 10px 30px rgba(99,102,241,0.3);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(99,102,241,0.4);
+}
+
+.btn-secondary{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+.btn-secondary:hover{
+  background:var(--bg-secondary);
+  border-color:var(--primary);
+}
+
+.btn-outline{
+  background:transparent;
+  border:2px solid var(--primary);
+  color:var(--primary);
+}
+
+.btn-outline:hover{
+  background:var(--primary);
+  color:white;
+}
+
+.btn-sm{
+  padding:8px 16px;
+  font-size:0.85rem;
+}
+
+/* ========================= 
+HERO SECTION 
+========================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:150px 8% 100px;
+  gap:60px;
+}
+
+.hero-content{
+  flex:1;
+  max-width:600px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  background:rgba(99,102,241,0.1);
+  border:1px solid rgba(99,102,241,0.2);
+  border-radius:50px;
+  margin-bottom:25px;
+  color:var(--primary);
+  font-size:0.9rem;
+  font-weight:600;
+}
+
+.hero h1{
+  font-size:4.5rem;
+  line-height:1.1;
+  margin-bottom:25px;
+  font-family:'Poppins',sans-serif;
+  font-weight:800;
+}
+
+.hero-highlight{
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero p{
+  color:var(--text-muted);
+  font-size:1.15rem;
+  line-height:1.8;
+  margin-bottom:35px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.hero-image{
+  flex:1;
+  position:relative;
+}
+
+.slider-container{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:var(--shadow-lg);
+}
+
+.slider-wrapper{
+  position:relative;
+  width:100%;
+  padding-bottom:100%;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.slide{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity 0.5s ease-in-out;
+  object-fit:cover;
+}
+
+.slide.active{
+  opacity:1;
+}
+
+.slider-dots{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:10;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.4);
+  cursor:pointer;
+  transition:0.3s;
+  border:none;
+}
+
+.dot.active{
+  background:white;
+  width:30px;
+  border-radius:5px;
+}
+
+/* ========================= 
+STATS SECTION 
+========================= */
+
+.stats{
+  padding:80px 8%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  background:var(--bg-secondary);
+}
+
+.stat-card{
+  background:var(--card);
+  padding:40px;
+  border-radius:16px;
+  border:var(--border);
+  text-align:center;
+  transition:0.3s;
+}
+
+.stat-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--primary);
+}
+
+.stat-number{
+  font-size:3.5rem;
+  font-weight:800;
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  font-family:'Poppins',sans-serif;
+}
+
+.stat-label{
+  color:var(--text-muted);
+  font-size:1rem;
+  margin-top:10px;
+}
+
+/* ========================= 
+FEATURES SECTION 
+========================= */
+
+.features{
+  padding:120px 8%;
+}
+
+.section-header{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.section-label{
+  color:var(--primary);
+  font-size:0.9rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:15px;
+}
+
+.section-title{
+  font-size:3.5rem;
+  font-weight:800;
+  margin-bottom:20px;
+  font-family:'Poppins',sans-serif;
+}
+
+.section-subtitle{
+  color:var(--text-muted);
+  font-size:1.2rem;
+  max-width:600px;
+  margin:0 auto;
+}
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.feature-card{
+  background:var(--card);
+  padding:40px;
+  border-radius:16px;
+  border:var(--border);
+  transition:0.3s;
+}
+
+.feature-card:hover{
+  border-color:var(--primary);
+  background:var(--bg-secondary);
+}
+
+.feature-icon{
+  width:60px;
+  height:60px;
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  margin-bottom:20px;
+}
+
+.feature-card h3{
+  font-size:1.3rem;
+  margin-bottom:12px;
+  font-family:'Poppins',sans-serif;
+}
+
+.feature-card p{
+  color:var(--text-muted);
+  line-height:1.8;
+}
+
+/* ========================= 
+PUPPIES SECTION 
+========================= */
+
+.puppies{
+  padding:120px 8%;
+  background:var(--bg-secondary);
+}
+
+.puppies-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.puppy-card{
+  background:var(--card);
+  border-radius:16px;
+  overflow:hidden;
+  border:var(--border);
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.puppy-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--primary);
+  box-shadow:var(--shadow);
+}
+
+.puppy-image{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  position:relative;
+  overflow:hidden;
+}
+
+.puppy-badge{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:var(--success);
+  color:white;
+  padding:8px 16px;
+  border-radius:50px;
+  font-size:0.85rem;
+  font-weight:600;
+}
+
+.puppy-info{
+  padding:25px;
+}
+
+.puppy-name{
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:8px;
+  font-family:'Poppins',sans-serif;
+}
+
+.puppy-breed{
+  color:var(--text-muted);
+  font-size:0.9rem;
+  margin-bottom:15px;
+}
+
+.puppy-details{
+  display:flex;
+  gap:15px;
+  margin-bottom:20px;
+  font-size:0.9rem;
+}
+
+.puppy-detail{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  color:var(--text-muted);
+}
+
+.puppy-price{
+  font-size:1.8rem;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:20px;
+  font-family:'Poppins',sans-serif;
+}
+
+.puppy-card .btn{
+  width:100%;
+}
+
+/* ========================= 
+PRICING SECTION 
+========================= */
+
+.pricing{
+  padding:120px 8%;
+}
+
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.price-card{
+  background:var(--card);
+  padding:40px;
+  border-radius:16px;
+  border:var(--border);
+  transition:0.3s;
+  position:relative;
+}
+
+.price-card.featured{
+  border-color:var(--primary);
+  transform:scale(1.05);
+  box-shadow:var(--shadow);
+}
+
+.price-badge{
+  position:absolute;
+  top:-15px;
+  left:20px;
+  background:var(--primary);
+  color:white;
+  padding:8px 16px;
+  border-radius:50px;
+  font-size:0.8rem;
+  font-weight:700;
+}
+
+.price-title{
+  font-size:1.5rem;
+  font-weight:700;
+  margin-bottom:15px;
+  font-family:'Poppins',sans-serif;
+}
+
+.price-amount{
+  font-size:2.5rem;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:10px;
+  font-family:'Poppins',sans-serif;
+}
+
+.price-period{
+  color:var(--text-muted);
+  margin-bottom:30px;
+}
+
+.price-features{
+  list-style:none;
+  margin-bottom:30px;
+}
+
+.price-features li{
+  padding:12px 0;
+  color:var(--text-muted);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid var(--border);
+}
+
+.price-features li:before{
+  content:'✓';
+  color:var(--success);
+  font-weight:700;
+  font-size:1.2rem;
+}
+
+.price-card .btn{
+  width:100%;
+}
+
+/* ========================= 
+TESTIMONIALS SECTION 
+========================= */
+
+.testimonials{
+  padding:120px 8%;
+  background:var(--bg-secondary);
+}
+
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.testimonial-card{
+  background:var(--card);
+  padding:35px;
+  border-radius:16px;
+  border:var(--border);
+}
+
+.stars{
+  color:var(--warning);
+  font-size:1.2rem;
+  margin-bottom:15px;
+}
+
+.testimonial-text{
+  color:var(--text-muted);
+  line-height:1.8;
+  margin-bottom:20px;
+  font-style:italic;
+}
+
+.testimonial-author{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.author-avatar{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+}
+
+.author-info h4{
+  font-size:0.95rem;
+  font-weight:600;
+}
+
+.author-info p{
+  color:var(--text-muted);
+  font-size:0.85rem;
+}
+
+/* ========================= 
+CTA SECTION 
+========================= */
+
+.cta{
+  padding:100px 8%;
+  text-align:center;
+}
+
+.cta-box{
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  padding:80px;
+  border-radius:20px;
+  color:white;
+}
+
+.cta-box h2{
+  font-size:3rem;
+  margin-bottom:20px;
+  font-family:'Poppins',sans-serif;
+}
+
+.cta-box p{
+  font-size:1.1rem;
+  margin-bottom:30px;
+  opacity:0.95;
+}
+
+/* ========================= 
+FAQ SECTION 
+========================= */
+
+.faq{
+  padding:120px 8%;
+}
+
+.faq-container{
+  max-width:800px;
+  margin:auto;
+  margin-top:60px;
+}
+
+.faq-item{
+  background:var(--card);
+  margin-bottom:15px;
+  border-radius:12px;
+  border:var(--border);
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.faq-question{
+  width:100%;
+  padding:25px;
+  border:none;
+  background:none;
+  color:var(--text);
+  text-align:left;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'Inter',sans-serif;
+}
+
+.faq-question:hover{
+  color:var(--primary);
+}
+
+.faq-toggle{
+  font-size:1.5rem;
+  transition:0.3s;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.faq-answer p{
+  padding:0 25px 25px;
+  color:var(--text-muted);
+  line-height:1.8;
+}
+
+.faq-item.active .faq-answer{
+  max-height:300px;
+}
+
+.faq-item.active .faq-toggle{
+  transform:rotate(180deg);
+}
+
+/* ========================= 
+FOOTER 
+========================= */
+
+footer{
+  padding:60px 8%;
+  border-top:var(--border);
+  background:var(--bg-secondary);
+}
+
+.footer-content{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+  margin-bottom:40px;
+}
+
+.footer-section h3{
+  font-size:1rem;
+  font-weight:700;
+  margin-bottom:20px;
+  font-family:'Poppins',sans-serif;
+}
+
+.footer-section ul{
+  list-style:none;
+}
+
+.footer-section ul li{
+  margin-bottom:12px;
+}
+
+.footer-section ul li a{
+  color:var(--text-muted);
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.footer-section ul li a:hover{
+  color:var(--primary);
+}
+
+.footer-bottom{
+  padding-top:30px;
+  border-top:var(--border);
+  text-align:center;
+  color:var(--text-muted);
+}
+
+/* ========================= 
+MODAL 
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-content{
+  background:var(--card);
+  width:100%;
+  max-width:600px;
+  border-radius:16px;
+  border:var(--border);
+  overflow:hidden;
+  animation:slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.modal-header{
+  padding:30px;
+  border-bottom:var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.modal-header h2{
+  font-family:'Poppins',sans-serif;
+  font-size:1.5rem;
+}
+
+.modal-close{
+  background:none;
+  border:none;
+  font-size:1.5rem;
+  cursor:pointer;
+  color:var(--text-muted);
+}
+
+.modal-body{
+  padding:30px;
+}
+
+.modal-body img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+.modal-footer{
+  padding:30px;
+  border-top:var(--border);
+  display:flex;
+  gap:15px;
+}
+
+.modal-footer .btn{
+  flex:1;
+}
+
+/* ========================= 
+MOBILE RESPONSIVE 
+========================= */
+
+@media(max-width:900px){
+  .hero{
+    flex-direction:column;
+    padding:150px 8% 80px;
+  }
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .hero-image{
+    width:100%;
+  }
+
+  .price-card.featured{
+    transform:scale(1);
+  }
+
+  .section-title{
+    font-size:2.5rem;
+  }
+}
+
+@media(max-width:768px){
+  header{
+    padding:15px 5%;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  nav{
+    position:fixed;
+    top:70px;
+    right:-100%;
+    flex-direction:column;
+    background:var(--card);
+    width:100%;
+    padding:30px;
+    border-radius:0;
+    transition:0.4s;
+    border-bottom:var(--border);
+  }
+
+  nav.active{
+    right:0;
+  }
+
+  .hero{
+    padding:150px 5% 60px;
+  }
+
+  .hero h1{
+    font-size:2.2rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .section-title{
+    font-size:2rem;
+  }
+
+  .cta-box{
+    padding:50px 30px;
+  }
+
+  .cta-box h2{
+    font-size:2rem;
+  }
+
+  .pricing-grid,.puppies-grid,.testimonials-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ========================= 
+HEADER 
+========================= -->
+
+<header>
+  <div class="logo">
+    🐾 Royal Paws
+  </div>
+
+  <nav id="nav">
+    <a href="#features">Features</a>
+    <a href="#puppies">Puppies</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <div class="auth-buttons">
+    <button class="theme-btn" onclick="toggleTheme()">
+      🌙
+    </button>
+    <button class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </button>
+  </div>
+</header>
+
+<!-- ========================= 
+HERO SECTION 
+========================= -->
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">
+      ✨ Premium Dog Breeding Platform
+    </div>
+
+    <h1>
+      Find Your <span class="hero-highlight">Perfect Companion</span> Today
+    </h1>
+
+    <p>
+      Discover premium, vaccinated puppies from certified breeders. Every puppy comes with health certificates and 24/7 support.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="btn btn-primary" onclick="scrollToSection('puppies')">
+        Explore Puppies
+      </button>
+      <button class="btn btn-secondary" onclick="openBookingModal()">
+        Book Consultation
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="slider-container">
+      <div class="slider-wrapper">
+        <img class="slide active"
+        src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop"
+        alt="Golden Retriever">
+
+        <img class="slide"
+        src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop"
+        alt="German Shepherd">
+
+        <img class="slide"
+        src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop"
+        alt="Puppy">
+      </div>
+      <div class="slider-dots">
+        <button class="dot active" onclick="changeSlide(0)"></button>
+        <button class="dot" onclick="changeSlide(1)"></button>
+        <button class="dot" onclick="changeSlide(2)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 
+STATS SECTION 
+========================= -->
+
+<section class="stats">
+  <div class="stat-card">
+    <div class="stat-number">500+</div>
+    <div class="stat-label">Happy Families</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Vaccinated & Healthy</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-number">8+</div>
+    <div class="stat-label">Years Experience</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-number">4.9★</div>
+    <div class="stat-label">Customer Rating</div>
+  </div>
+</section>
+
+<!-- ========================= 
+FEATURES SECTION 
+========================= -->
+
+<section class="features" id="features">
+  <div class="section-header">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">Industry-Leading Services</h2>
+    <p class="section-subtitle">We provide the best puppy breeding experience with certified health guarantees</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">💉</div>
+      <h3>Fully Vaccinated</h3>
+      <p>All puppies receive complete vaccinations with health certificates and microchipping included.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🏥</div>
+      <h3>Health Guaranteed</h3>
+      <p>30-day health guarantee ensures your puppy arrives healthy and happy to your home.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <h3>Safe Nationwide Delivery</h3>
+      <p>Professional, climate-controlled shipping to ensure your puppy arrives safely and comfortably.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📞</div>
+      <h3>24/7 Support</h3>
+      <p>Dedicated customer support team available round the clock for any questions or concerns.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <h3>Certified Breeding</h3>
+      <p>All breeding dogs are certified, DNA tested, and meet strict health and temperament standards.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">👨‍⚖️</div>
+      <h3>Legal Protection</h3>
+      <p>Full documentation and legal contracts protecting both you and your new family member.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 
+PUPPIES SECTION 
+========================= -->
+
+<section class="puppies" id="puppies">
+  <div class="section-header">
+    <div class="section-label">Available Now</div>
+    <h2 class="section-title">Premium Puppies</h2>
+    <p class="section-subtitle">Handpicked puppies from our certified breeders</p>
+  </div>
+
+  <div class="puppies-grid">
+    <div class="puppy-card" onclick="openPuppyModal('Golden Retriever', 'Friendly, loyal, and perfect for families. Loves playing fetch and swimming.', 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=1200&auto=format&fit=crop', '$1,200')">
+      <img class="puppy-image"
+      src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=1200&auto=format&fit=crop"
+      alt="Golden Retriever">
+      <span class="puppy-badge">Available</span>
+      <div class="puppy-info">
+        <h3 class="puppy-name">Golden Retriever</h3>
+        <p class="puppy-breed">6 weeks old • Male</p>
+        <div class="puppy-details">
+          <span class="puppy-detail">📍 Dallas, TX</span>
+          <span class="puppy-detail">🎂 8 Weeks Ready</span>
+        </div>
+        <div class="puppy-price">$1,200</div>
+        <button class="btn btn-primary btn-sm">View Details</button>
+      </div>
+    </div>
+
+    <div class="puppy-card" onclick="openPuppyModal('German Shepherd', 'Strong, protective, and highly intelligent. Excellent for families and service work.', 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop', '$1,500')">
+      <img class="puppy-image"
+      src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop"
+      alt="German Shepherd">
+      <span class="puppy-badge">Available</span>
+      <div class="puppy-info">
+        <h3 class="puppy-name">German Shepherd</h3>
+        <p class="puppy-breed">5 weeks old • Female</p>
+        <div class="puppy-details">
+          <span class="puppy-detail">📍 Dallas, TX</span>
+          <span class="puppy-detail">🎂 8 Weeks Ready</span>
+        </div>
+        <div class="puppy-price">$1,500</div>
+        <button class="btn btn-primary btn-sm">View Details</button>
+      </div>
+    </div>
+
+    <div class="puppy-card" onclick="openPuppyModal('Labrador Retriever', 'Energetic and playful, perfect for active families. Great swimmers and companions.', 'https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=1200&auto=format&fit=crop', '$1,300')">
+      <img class="puppy-image"
+      src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=1200&auto=format&fit=crop"
+      alt="Labrador">
+      <span class="puppy-badge">Available</span>
+      <div class="puppy-info">
+        <h3 class="puppy-name">Labrador Retriever</h3>
+        <p class="puppy-breed">4 weeks old • Male</p>
+        <div class="puppy-details">
+          <span class="puppy-detail">📍 Dallas, TX</span>
+          <span class="puppy-detail">🎂 8 Weeks Ready</span>
+        </div>
+        <div class="puppy-price">$1,300</div>
+        <button class="btn btn-primary btn-sm">View Details</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 
+PRICING SECTION 
+========================= -->
+
+<section class="pricing" id="pricing">
+  <div class="section-header">
+    <div class="section-label">Simple Pricing</div>
+    <h2 class="section-title">Transparent Pricing Plans</h2>
+    <p class="section-subtitle">All prices include health certificates, vaccinations, and shipping</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card">
+      <h3 class="price-title">Standard Puppy</h3>
+      <div class="price-amount">$1,200</div>
+      <p class="price-period">One-time payment</p>
+      
+      <ul class="price-features">
+        <li>Full vaccinations</li>
+        <li>Health certificate</li>
+        <li>Microchipping</li>
+        <li>30-day guarantee</li>
+      </ul>
+
+      <button class="btn btn-secondary" onclick="contactSeller()">
+        Get Started
+      </button>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-badge">POPULAR</div>
+      <h3 class="price-title">Premium Puppy</h3>
+      <div class="price-amount">$1,500</div>
+      <p class="price-period">One-time payment</p>
+      
+      <ul class="price-features">
+        <li>Everything in Standard</li>
+        <li>Premium bloodline</li>
+        <li>Training session</li>
+        <li>Lifetime support</li>
+        <li>Free shipping</li>
+      </ul>
+
+      <button class="btn btn-primary" onclick="contactSeller()">
+        Order Now
+      </button>
+    </div>
+
+    <div class="price-card">
+      <h3 class="price-title">Breeding Rights</h3>
+      <div class="price-amount">$2,500+</div>
+      <p class="price-period">Custom pricing</p>
+      
+      <ul class="price-features">
+        <li>Everything in Premium</li>
+        <li>Breeding rights</li>
+        <li>Genetics consultation</li>
+        <li>Show training</li>
+      </ul>
+
+      <button class="btn btn-secondary" onclick="openBookingModal()">
+        Consult
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 
+TESTIMONIALS SECTION 
+========================= -->
+
+<section class="testimonials" id="testimonials">
+  <div class="section-header">
+    <div class="section-label">Customer Stories</div>
+    <h2 class="section-title">Loved by 500+ Families</h2>
+    <p class="section-subtitle">See what our happy customers have to say</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        "Royal Paws delivered the healthiest puppy we've ever owned. The entire process was smooth and professional. Highly recommend!"
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SJ</div>
+        <div class="author-info">
+          <h4>Sarah Johnson</h4>
+          <p>Dallas, TX</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        "Best investment we made! Max has brought so much joy to our family. The customer support was outstanding throughout."
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MA</div>
+        <div class="author-info">
+          <h4>Michael Adams</h4>
+          <p>Houston, TX</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        "Professional breeders with exceptional service. Luna is healthy and well-socialized. Thank you for taking such good care!"
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JM</div>
+        <div class="author-info">
+          <h4>Jessica Miller</h4>
+          <p>Austin, TX</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">
+        "The transparency and professionalism was unmatched. Every question answered, every concern addressed. Truly exceptional!"
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RC</div>
+        <div class="author-info">
+          <h4>Robert Chen</h4>
+          <p>San Antonio, TX</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 
+FAQ SECTION 
+========================= -->
+
+<section class="faq" id="faq">
+  <div class="section-header">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Are all puppies vaccinated and microchipped?
+        <span class="faq-toggle">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes, absolutely! Every puppy comes fully vaccinated with health certificates and is microchipped. We provide complete medical records and a 30-day health guarantee.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do you deliver nationwide?
+        <span class="faq-toggle">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes! We deliver safely across the United States using professional, climate-controlled shipping. Puppies are well-cared for during transport and arrive healthy and happy.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I visit before purchase?
+        <span class="faq-toggle">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Absolutely! We encourage visits by appointment. You can meet the puppy and parents in person. We offer virtual tours as well for those who cannot visit in person.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What is your refund policy?
+        <span class="faq-toggle">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          We offer a 30-day health guarantee. If your puppy has any health issues within this period, we'll provide treatment or replacement. We also offer a money-back guarantee if you're not satisfied.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do you provide ongoing support?
+        <span class="faq-toggle">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes! We provide lifetime support for all our puppies. Our 24/7 customer support team is always available to answer questions about training, nutrition, health, and anything else related to your puppy.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 
+CTA SECTION 
+========================= -->
+
+<section class="cta">
+  <div class="cta-box">
+    <h2>Ready to Bring Home Your Puppy?</h2>
+    <p>Don't miss out on finding your perfect companion. Contact us today!</p>
+    <button class="btn btn-secondary" onclick="contactSeller()">
+      Chat on WhatsApp Now
+    </button>
+  </div>
+</section>
+
+<!-- ========================= 
+FOOTER 
+========================= -->
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Royal Paws</h3>
+      <p style="color:var(--text-muted); margin-bottom: 20px;">
+        Premium dog breeding platform connecting families with healthy, certified puppies.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#puppies">Puppies</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#" onclick="contactSeller()">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+        <li><a href="mailto:royalpaws@gmail.com">royalpaws@gmail.com</a></li>
+        <li>Dallas, Texas, USA</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Royal Paws Luxury. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ========================= 
+MODALS 
+========================= -->
+
+<!-- PUPPY MODAL -->
+<div class="modal" id="puppyModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalPuppyName"></h2>
+      <button class="modal-close" onclick="closePuppyModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <img id="modalPuppyImage" alt="Puppy">
+      <p id="modalPuppyDesc" style="color:var(--text-muted); margin-bottom: 20px;"></p>
+      <div style="display:grid; gap:15px;">
+        <div style="padding:15px; background:var(--bg-secondary); border-radius:12px;">
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom: 5px;">Price</p>
+          <p id="modalPuppyPrice" style="font-size:1.8rem; font-weight:700; color:var(--primary);"></p>
+        </div>
+        <div style="padding:15px; background:var(--bg-secondary); border-radius:12px;">
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom: 5px;">Includes</p>
+          <p style="color:var(--text); font-size:0.95rem;">✓ Vaccinations • ✓ Microchip • ✓ Health Certificate • ✓ 30-day Guarantee</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closePuppyModal()">Close</button>
+      <button class="btn btn-primary" onclick="contactSeller()">Inquire Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Book a Consultation</h2>
+      <button class="modal-close" onclick="closeBookingModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="submitBooking(event)">
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600;">Your Name</label>
+          <input type="text" required style="width:100%; padding:12px; background:var(--bg-secondary); border:var(--border); border-radius:8px; color:var(--text);" placeholder="John Doe">
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600;">Email Address</label>
+          <input type="email" required style="width:100%; padding:12px; background:var(--bg-secondary); border:var(--border); border-radius:8px; color:var(--text);" placeholder="john@example.com">
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600;">Phone Number</label>
+          <input type="tel" required style="width:100%; padding:12px; background:var(--bg-secondary); border:var(--border); border-radius:8px; color:var(--text);" placeholder="+1 (555) 123-4567">
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600;">Preferred Breed</label>
+          <select required style="width:100%; padding:12px; background:var(--bg-secondary); border:var(--border); border-radius:8px; color:var(--text);">
+            <option value="">Select a breed</option>
+            <option value="Golden Retriever">Golden Retriever</option>
+            <option value="German Shepherd">German Shepherd</option>
+            <option value="Labrador">Labrador Retriever</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">Schedule Consultation</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* ========================= 
+MOBILE MENU 
+========================= */
+
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("active");
+}
+
+/* ========================= 
+DARK MODE 
+========================= */
+
+function toggleTheme(){
+  document.body.classList.toggle("light-mode");
+  localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+}
+
+// Load theme preference
+if(localStorage.getItem("theme") === "light"){
+  document.body.classList.add("light-mode");
+}
+
+/* ========================= 
+HERO SLIDER 
+========================= */
+
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function changeSlide(index){
+  slides[currentSlide].classList.remove("active");
+  dots[currentSlide].classList.remove("active");
+  
+  currentSlide = index;
+  
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
+}
+
+setInterval(()=>{
+  changeSlide((currentSlide + 1) % slides.length);
+}, 5000);
+
+/* ========================= 
+FAQ TOGGLE 
+========================= */
+
+function toggleFaq(button){
+  const item = button.parentElement;
+  item.classList.toggle("active");
+}
+
+/* ========================= 
+MODALS 
+========================= */
+
+function openPuppyModal(name, desc, image, price){
+  document.getElementById("modalPuppyName").innerText = name;
+  document.getElementById("modalPuppyDesc").innerText = desc;
+  document.getElementById("modalPuppyImage").src = image;
+  document.getElementById("modalPuppyPrice").innerText = price;
+  document.getElementById("puppyModal").classList.add("active");
+}
+
+function closePuppyModal(){
+  document.getElementById("puppyModal").classList.remove("active");
+}
+
+function openBookingModal(){
+  document.getElementById("bookingModal").classList.add("active");
+}
+
+function closeBookingModal(){
+  document.getElementById("bookingModal").classList.remove("active");
+}
+
+function submitBooking(event){
+  event.preventDefault();
+  contactSeller();
+  closeBookingModal();
+}
+
+/* ========================= 
+UTILITIES 
+========================= */
+
+function scrollToSection(id){
+  const element = document.getElementById(id);
+  if(element){
+    element.scrollIntoView({behavior: "smooth"});
+    document.getElementById("nav").classList.remove("active");
+  }
+}
+
+function contactSeller(){
+  const phone = "2348159283025";
+  const message = "Hello! I'm interested in your premium puppies and would like more information.";
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+}
+
+// Close modals on outside click
+window.addEventListener("click", (event)=>{
+  const puppyModal = document.getElementById("puppyModal");
+  const bookingModal = document.getElementById("bookingModal");
+  
+  if(event.target === puppyModal){
+    closePuppyModal();
+  }
+  if(event.target === bookingModal){
+    closeBookingModal();
+  }
+});
+
+</script>
+
+</body>
+</html>
